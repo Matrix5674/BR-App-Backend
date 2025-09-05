@@ -4,7 +4,7 @@ import cors from 'cors';
 import dotenv from "dotenv";
 
 
-import { authenticate } from './Middleware/auth';
+import { authenticate } from './Middleware/auth.js';
 
 const PORT = process.env.PORT || 4000;
 
