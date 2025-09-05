@@ -6,9 +6,9 @@ import dotenv from "dotenv";
 
 import { authenticate } from './Middleware/auth.js';
 
-const PORT = process.env.PORT || 4000;
-
 dotenv.config();
+
+const PORT = process.env.PORT || 4000;
 
 const serviceAccount = JSON.parse(process.env.SERVICEACCOUNT);
 
@@ -21,7 +21,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.listen(PORT, () => console.log(`Server running on port ${4000}`));
+app.get("/", (req, res) => {
+  res.send("Backend is running!");
+});
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 app.get("/user", authenticate, async (req, res) => {
     try {
